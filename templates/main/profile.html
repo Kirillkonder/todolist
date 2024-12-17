@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container"> 
+        <p><a href="{% url 'todo' %}" class="btn btn-primary">Добавить задачу</a></p>
+
+        {% if todoes %}
+            {% for todo in todoes %}
+            <div class="todo-item card mb-3 {% if todo.completed %}completed{% else %}pending{% endif %}">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mx-auto">{{ todo.title }}</h5>
+                    <p class="card-text ml-3">Статус: 
+                        <span class="{{ todo.completed|yesno:'status-completed,status-pending' }}">
+                            {% if todo.completed %}
+                                <i class="fas fa-check-circle"></i> {{ todo.completed|yesno:"Сделано,Не сделано" }}
+                            {% else %}
+                                <i class="fas fa-times-circle"></i> {{ todo.completed|yesno:"Сделано,Не сделано" }}
+                            {% endif %}
+                        </span>
+                    </p>
+                </div>
+                <div class="card-footer text-right">
+                    <form action="{% url 'change_status' todo.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">
+                            {{ todo.completed|yesno:"Пометить как не сделано,Пометить как сделано" }}
+                        </button>
+                    </form>
+                    <form action="{% url 'edit_todo' todo.id %}" method="get" style="display:inline;">
+                        <button type="submit" class="btn btn-primary">
+                            Редактировать
+                        </button>
+                    </form>
+                    <form action="{% url 'delete_todo' todo.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}    
+                        <button type="submit" class="btn btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет заметок</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+.registration-form {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    width: 400px;
+}
+.form-control {
+    border-radius: 50px; /* Круглые поля */
+    background-color: #2a2a2a; /* Темный фон для полей */
+    color: white; /* Цвет текста */
+    margin-bottom: 15px; /* Замените 15px на нужное вам значение */
+}
+.form-control::placeholder {
+    color: #b0b0b0; /* Цвет плейсхолдера */
+}
+button {
+    background-color: #6200ea;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Анимация при наведении */
+}
+button:hover {
+    background-color: #3700b3; /* Цвет кнопки при наведении */
+}

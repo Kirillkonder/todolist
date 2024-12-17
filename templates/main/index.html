@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <style>
+       
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" name="username" class="rounded-input form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" name="password" class="rounded-input form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-custom">Войти</button>
+        </form>
+        <p class="text-center">Еще нет аккаунта? <a href="{% url 'register' %}" class="text-info">Зарегистрироваться</a></p>
+    </div>
+
+    <!-- Частицы вокруг формы -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Подключение Bootstrap JS (необязательно, если не используете JavaScript компоненты) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

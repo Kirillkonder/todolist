@@ -1,0 +1,48 @@
+body {
+    background-color: #343a40; /* Темный фон для всего тела */
+    color: #ffffff; /* Светлый цвет текста */
+}
+
+.container {
+    background-color: #495057; /* Темный фон для контейнера */
+    border-radius: 5px; /* Закругление углов */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для контейнера */
+    max-width: 400px; /* Максимальная ширина контейнера */
+    margin: auto; /* Центрирование контейнера */
+}
+
+.custom-title {
+    background-color: #6c757d; /* Темный фон для поля ввода */
+    color: #e9ecef; /* Светло-серый цвет текста */
+    border: 1px solid #ced4da; /* Цвет границы */
+}
+
+.custom-title::placeholder {
+    color: #adb5bd; /* Цвет плейсхолдера */
+}
+
+.custom-title:focus {
+    background-color: #afafaf; /* Цвет фона при фокусе */
+    border-color: #80bdff; /* Цвет границы при фокусе */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Тень при фокусе */
+}
+
+.button-container {
+    text-align: center; /* Центрирование кнопки */
+    margin-top: 20px; /* Отступ сверху для кнопки */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Цвет кнопки */
+    border-color: #007bff; /* Цвет границы кнопки */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+    border-color: #0056b3; /* Цвет границы кнопки при наведении */
+}
+
+h2 {
+    text-align: center;
+}
